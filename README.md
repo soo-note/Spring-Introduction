@@ -7,6 +7,11 @@ src
 │   │   └── hello
 │   │       └── hellospring
 │   │           ├── HelloSpringApplication.java
+                ├── domain
+                    └── Member.java
+                ├── repository
+                    ├── MemberRepository.java
+                    └── MemoryMemberRepository.java
 │   │           └── controller
 │   │               └── HelloController.java
 │   └── resources
@@ -21,6 +26,8 @@ src
     └── java
         └── hello
             └── hellospring
+                ├── repository
+                    └── MemoryMemberRepositoryTest.java
                 └── HelloSpringApplicationTests.java
 ```
 ##### ```resources/static/index.html``` : welcome page
@@ -39,3 +46,13 @@ src
     + ```viewResolver``` : 반환된 값(ex. name)을 템플릿을 매핑시켜준다. 
     + ```resources/templates/{name}.html``` 을 화면에 보여준다.
 + ```@ResponseBody``` : 컨트롤러의 반환값을 http 요청의 응답 body에 넣어준다.
+
+##### ```Domain``` : 비즈니스 도메인 객체
++ 해결하고자 하는 문제의 영역 (ex) 회원, 댓글, 게시글 등
+
+##### ```Repository```: 데이터베이스에 접근, 도메인 객체를 DB에 저장하고 관리
++ 현재 DB를 사용하지 않고 구현하여 Interface를 사용
+
+#### Test Code 작성하기
++ ```@Test```
++ 각 테스트 메소드는 순서와 상관없어야 한다. 즉, 의존 관계가 없어야 한다.
